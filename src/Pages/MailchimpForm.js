@@ -29,7 +29,7 @@ const CustomForm = ({ status, message, onValidated }) => {
     }
 
     return (
-        <div>
+        <div style={{paddingRight:'15px'}}>
         <form
         onSubmit={(e) => handleSubmit(e)}
         >

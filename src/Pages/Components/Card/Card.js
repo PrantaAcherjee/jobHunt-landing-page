@@ -1,4 +1,4 @@
-import { Grid,CardContent,Typography, TextField } from '@mui/material';
+import { Grid,Paper,Typography, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 
 const Card = () => {
@@ -15,15 +15,15 @@ useEffect(()=>{
 const handleSearchBtn=(e)=>{
 const searchText=e.target.value;
 const matchedData=data.filter(pd=>pd.title.toLowerCase().includes(searchText.toLowerCase()));
-console.log(matchedData.length)
+// console.log(matchedData.length)
 setDisplayData(matchedData)
 }
     return (
         <div style={{marginTop:'50px',    marginBottom:'50px'}}>          
           
-           <Typography style={{marginBottom:'15px'}} variant='h5'>Welcome to Job Hunt</Typography>
+           <Typography style={{marginBottom:'15px',color:'darkCyan'}} variant='h4'>Welcome to Job Hunt</Typography>
            <TextField
-           style={{width:'50%'}}
+           style={{width:'50%',marginBottom:'20px'}}
            placeholder='Search your dream job....'
            type='text'
            onChange={handleSearchBtn}
@@ -34,17 +34,17 @@ setDisplayData(matchedData)
            {
                displayData.map(pd=><Grid key={pd.id} item xs={2} sm={4} md={4}> 
                                 
-                   <CardContent variant="outlined">
-                        <Typography>
+                   <Paper style={{padding:'15px'}} elevation={3}>
+                        <Typography style={{color:'#482880',fontSize:'23px'}}>
                       Position: {pd.title}
                         </Typography>                  
-                        <Typography>
-                     Salary: 
+                        <Typography style={{color:'#4a148c',fontSize:'18px'}}>
+                        Salary: 
                        {pd.salary}
                         </Typography>                  
-                        <Typography>
+                        <Typography style={{color:'#4a148c',fontSize:'16px'}}>
                       Have to nice: {pd.basics}
-                    </Typography>                          </CardContent>
+                    </Typography>                          </Paper>
 
                </Grid>)
            } 
