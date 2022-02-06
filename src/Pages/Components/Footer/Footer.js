@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { Link, Typography } from '@mui/material';
-import TextField from '@mui/material/TextField';
+import MailchimpForm from './../../MailchimpForm';
 
 const Footer = () => {
+    
+     
     return (           
         <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={{ xs: 2, md: 4 }} columns={{ xs: 12, md: 12 }}>
@@ -30,15 +32,14 @@ const Footer = () => {
                 <Link style={{textDecoration:'none'}}>TRAINING</Link>
             </Grid>
             <Grid item xs={4} sm={4} md={4}>
-                <Typography variant='h5'>
-                NEWS LETTER
-                </Typography>              
-                <form>
-                <TextField id="standard-basic" label="Standard" variant="standard" /><br />
-                <TextField id="standard-basic" label="Standard" variant="standard" /><br />
-                <button type='submit'>Submit</button>
-                </form>             
-            </Grid>
+                <Typography variant='h6'>
+                GET NEWS LETTER FOR FUTURE UPDATES
+                </Typography>
+
+        {/* letter form */}
+          <MailchimpForm></MailchimpForm>
+                 
+     </Grid>
         
         </Grid>
       </Box>   
@@ -46,3 +47,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+ 
