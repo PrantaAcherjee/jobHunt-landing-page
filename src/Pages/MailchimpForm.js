@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import MailchimpSubscribe from "react-mailchimp-subscribe"
 import { TextField } from '@mui/material';
+import { Alert,AlertTitle } from '@mui/material';
 
 const CustomForm = ({ status, message, onValidated }) => {
     const [email, setEmail] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
-
+    const [success,setSuccess]=useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -17,19 +18,25 @@ const CustomForm = ({ status, message, onValidated }) => {
         onValidated({
             EMAIL: email,
             MERGE1: firstName,
-            MERGE2: lastName,
+            MERGE2: lastName,           
         });
-
+        if(email !==''){
+        setSuccess(true)
+        }else{
+            return
+        }
+        
     }
 
     return (
+        <div>
         <form
-            onSubmit={(e) => handleSubmit(e)}
+        onSubmit={(e) => handleSubmit(e)}
         >
                        
                 <div>
                     <TextField
-                        label="First Name"
+                         
                         onChange={(e)=>setFirstName(e.target.value)}
                         type="text"
                         value={firstName}
@@ -38,7 +45,7 @@ const CustomForm = ({ status, message, onValidated }) => {
                     />
 
                     <TextField
-                        label="Last Name"
+                        
                         onChange={(e)=>setLastName(e.target.value)}
                         type="text"
                         value={lastName}
@@ -47,19 +54,24 @@ const CustomForm = ({ status, message, onValidated }) => {
                     />
 
                     <TextField
-                        label="Email"
+                        
                         onChange={(e)=>setEmail(e.target.value)}
                         type="email"
                         value={email}
                         placeholder="your@email.com"
                         isRequired
                     />
-
                 </div>
                 <TextField
-                    type="submit"
-                    formValues={[email, firstName, lastName]} />           
+                type="submit"
+                formValues={[email, firstName, lastName]} />
         </form>
+              {success && <Alert severity="success">
+              <AlertTitle>Success</AlertTitle>
+              We received your Email — <strong>Thank You</strong>
+              </Alert>}
+        </div>
+        
     );
 };
 
