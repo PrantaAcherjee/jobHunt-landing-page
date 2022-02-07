@@ -8,7 +8,8 @@ const Footer = () => {
     
      
     return (           
-        <Box sx={{ flexGrow: 1 }}>
+        <div>
+            <Box  sx={{ flexGrow: 1 }}>
         <Grid container spacing={{ xs: 2, md: 4 }} columns={{ xs: 12, md: 12 }}>
            
             <Grid item xs={4} sm={4} md={4}>
@@ -43,7 +44,8 @@ const Footer = () => {
         
         </Grid>
         <p style={{color:'gray',marginTop:'30px'}}>&copy; Job Hunt. All Right Reserved</p>
-      </Box>   
+      </Box>
+        </div>   
     );
 };
 

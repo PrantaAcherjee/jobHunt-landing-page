@@ -19,7 +19,7 @@ const matchedData=data.filter(pd=>pd.title.toLowerCase().includes(searchText.toL
 setDisplayData(matchedData)
 }
     return (
-        <div style={{marginTop:'60px',    marginBottom:'100px',height:'100vh'}}>          
+        <div style={{marginTop:'60px',    marginBottom:'100px'}}>          
           
            <Typography style={{marginBottom:'15px',color:'darkCyan'}} variant='h4'>Welcome to Job Hunt</Typography>
            <TextField
@@ -34,7 +34,7 @@ setDisplayData(matchedData)
            {
                displayData.map(pd=><Grid key={pd.id} item xs={2} sm={4} md={4}> 
                                 
-                   <Paper style={{padding:'15px'}} elevation={3}>
+                   <Paper style={{padding:'15px',height:'180px'}} elevation={3}>
                         <Typography style={{color:'#482880',fontSize:'23px'}}>
                       Position: {pd.title}
                         </Typography>                  
