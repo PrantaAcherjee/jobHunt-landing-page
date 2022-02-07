@@ -63,6 +63,8 @@ const CustomForm = ({ status, message, onValidated }) => {
                     />
                 </div>
                 <TextField
+                style={{backgroundColor:"gray"
+                }}
                 type="submit"
                 formValues={[email, firstName, lastName]} />
         </form>

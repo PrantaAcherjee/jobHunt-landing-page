@@ -19,7 +19,7 @@ const matchedData=data.filter(pd=>pd.title.toLowerCase().includes(searchText.toL
 setDisplayData(matchedData)
 }
     return (
-        <div style={{marginTop:'50px',    marginBottom:'50px'}}>          
+        <div style={{marginTop:'60px',    marginBottom:'100px',height:'100vh'}}>          
           
            <Typography style={{marginBottom:'15px',color:'darkCyan'}} variant='h4'>Welcome to Job Hunt</Typography>
            <TextField
@@ -43,7 +43,7 @@ setDisplayData(matchedData)
                        {pd.salary}
                         </Typography>                  
                         <Typography style={{color:'#4a148c',fontSize:'16px'}}>
-                      Have to nice: {pd.basics}
+                      Nice to have: {pd.basics}
                     </Typography>                          </Paper>
 
                </Grid>)
